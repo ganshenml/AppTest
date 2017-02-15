@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class PhotoUploadActivity extends AppCompatActivity {
     private Button uploadBtn;
-    Map<String , Object> mapParams = new HashMap<String, Object>();
+    Map<String , String> mapParams = new HashMap<String, String>();
     Map<String ,File> mapFiles = new HashMap<String, File>();
 
 
@@ -43,10 +43,10 @@ public class PhotoUploadActivity extends AppCompatActivity {
                         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+"dagudong_photo"+File.separator+"20170211150020.png");
                         Log.e("imageUrl",file.getAbsolutePath());
 
-                        mapFiles.put("photo01",file);
+                        mapFiles.put("img",file);
 
                         try {
-                            PhotoUtils.postPhoto(getApplicationContext(),url,mapParams,mapFiles);
+                            PhotoUtils.post(url,mapParams,mapFiles);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
